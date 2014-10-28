@@ -1,0 +1,55 @@
+                              			
+				<div class="content-module">
+				
+					<div class="content-module-heading cf">
+					
+						<h3 class="fl"><?php echo $this->translate('Lista ofert') ?></h3>
+						<span class="fr expand-collapse-text"><?php echo $this->translate('Schowaj') ?></span>
+						<span class="fr expand-collapse-text initial-expand"><?php echo $this->translate('Wysuń') ?></span>
+					
+					</div> <!-- end content-module-heading -->
+					
+					
+					<div class="content-module-main">
+					
+						<table class="tablesorter" id="options">
+						
+							<thead>
+						
+								<tr>
+									<th><input type="checkbox" id="table-select-all"></th>
+									<th class="sort"><?php echo $this->translate('Nazwa') ?></th>
+									<th class="sort"><?php echo $this->translate('Data zakończenia') ?></th>
+									<th class="sort"><?php echo $this->translate('Numer telefonu') ?></th>
+                                                                        <th class="sort"><?php echo $this->translate('E-mail') ?></th>
+									<th><?php echo $this->translate('Akcje') ?></th>
+								</tr>
+							
+							</thead>
+	
+						
+							
+							<tbody>
+                                                            <?php for ($i = 0; $i <= count($offernames)-1; $i++) { ?>
+								<tr>
+									<td><input type="checkbox"></td>
+									<td><?php echo $this->escapeHtml($offernames[$i]);?></td>
+									<td><?php echo gmdate("Y-m-d H:i:s",$this->escapeHtml($offerend[$i]));?></td>
+                                                                        <td><?php echo $address_phone[$i]; ?></a></td>
+									<td><?php echo $address_email[$i]; ?></a></td>
+									<td>
+										<a href="<?php echo $this->url('editoffer', array('action'=>'edit', 'link' => $offerlink[$i])) ?>" class="table-actions-button ic-table-edit"></a>
+										<a href="<?php echo $this->url('offer', array('action'=>'delete', 'id' => $offerid[$i])) ?>" class="table-actions-button ic-table-delete"></a>
+									</td>
+								</tr>                                                               
+                                                            <?php } ?>    
+                                                        </tbody>	
+						</table>
+					
+					</div> <!-- end content-module-main -->
+				
+				</div> <!-- end content-module -->
+				
+			
+
+			

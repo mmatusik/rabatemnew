@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/xampp/htdocs/rabatem/vendor/zf-commons/zfc-user/src/ZfcUser/Authentication/Adapter/ChainableAdapter.php</file>
+            <file>file:/C:/xampp/htdocs/rabatem/vendor/zf-commons/zfc-user/src/ZfcUser/Entity/UserInterface.php</file>
+            <file>file:/C:/xampp/htdocs/rabatem/module/Dashboard/src/Dashboard/Controller/IndexController.php</file>
+            <file>file:/C:/xampp/htdocs/rabatem/vendor/zf-commons/zfc-user/src/ZfcUser/Authentication/Adapter/AdapterChainServiceFactory.php</file>
+            <file>file:/C:/xampp/htdocs/rabatem/vendor/zf-commons/zfc-user/src/ZfcUser/Authentication/Adapter/AbstractAdapter.php</file>
+            <file>file:/C:/xampp/htdocs/rabatem/vendor/zf-commons/zfc-user/src/ZfcUser/Authentication/Adapter/AdapterChain.php</file>
+            <file>file:/C:/xampp/htdocs/rabatem/vendor/zf-commons/zfc-user/src/ZfcUser/Authentication/Adapter/AdapterChainEvent.php</file>
+            <file>file:/C:/xampp/htdocs/rabatem/vendor/zf-commons/zfc-user/src/ZfcUser/Authentication/Adapter/Db.php</file>
+        </group>
+    </open-files>
+</project-private>

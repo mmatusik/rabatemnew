@@ -1,0 +1,72 @@
+.user-dashboard {
+    margin: 30px 0 50px 0px;
+    font-family: Open Sans;
+}
+
+.user-dashboard h3 {
+    font-weight: 300;   
+    font-size: 150%;
+}
+
+.user-last {
+    width: 30%;
+    margin-top: 60px;
+    text-align: center;
+}
+
+.user-last h4 {
+    background: #00ccc8;
+    color: #fff;
+    padding: 15px 0 15px 0;
+    display: block;
+    font-weight: 400;
+    margin-bottom: 0px;
+}
+
+.user-code {
+    background: #f2f2f2;
+    padding: 10px 1% 5px 1%;
+    float: left;
+    width: 98%;
+    border-bottom: 1px solid #cdcdcd;
+}
+
+.user-code-bottom {
+    margin-top: 30px;
+}
+
+.user-code a {
+    float: right;
+    background: #efad4d;
+    text-decoration: none;
+    padding: 12px;
+    color: #fff;
+}
+
+.user-code span {
+    color: #4d4944;
+    margin-top: 5px;
+    font-size: 60%;
+    float: right;
+    clear: both;
+}
+
+.user-code h5 {
+    clear: both;
+    font-weight: 300;
+    text-decoration: line-through;
+    font-size: 90%;
+    float: left;
+    margin: 12px 0 0 0; padding: 0;
+    color: #efad4d;
+}
+
+.user-code h6 {
+    color: #efad4d;
+    font-weight: 400;
+    font-size: 130%;
+    float: left;
+    margin: 6px 0 0 0; padding: 0;
+}
+
+

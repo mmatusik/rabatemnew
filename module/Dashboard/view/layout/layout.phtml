@@ -1,0 +1,140 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="pl">
+    <head>
+	<meta charset="utf-8">
+        <?php echo $this->headTitle('Rabatem '. $this->translate('Panel Administratora'))->setSeparator(' - ')->setAutoEscape(false) ?>
+	
+	<!-- Stylesheets -->
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700&subset=latin,latin-ext' rel='stylesheet'>
+	<link rel="stylesheet" href="css/style.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon(2).ico'))
+                        ->prependStylesheet($this->basePath() . '/css/style.css')->prependStylesheet($this->basePath() . '/stats/codebase/dhtmlxchart.css')?>
+        <?php echo $this->headScript()->prependFile($this->basePath() . '/js/script.js')->prependFile($this->basePath() . '/stats/codebase/dhtmlxchart.js')
+        ->prependFile($this->basePath() . '/stats/common/testdata.js')
+        ->prependFile($this->basePath() . '/js/jquery.tablesorter.js')
+        ->prependFile($this->basePath() . '/js/jquery.imgareaselect.pack.js')
+        ->prependFile($this->basePath() . '/js/jquery.bpopup.min.js');
+        
+        ?>
+        
+	<!-- Optimize for mobile devices -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('input[type="radio"]').click(function(){
+                    if($(this).attr("value")=="code"){
+                        $(".code").toggle();
+                    }
+                    if($(this).attr("value")=="pass"){
+                        $(".pass").toggle();
+                    }
+                });
+            });
+        </script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+    </head>
+<body>    
+<!-- TOP BAR -->
+	<div id="top-bar">
+		
+		<div class="page-full-width cf">
+
+			<ul id="nav" class="fl">
+                            <?php if($this->zfcUserIdentity()) { ?>
+                            <li class="v-sep"><a href="<?php echo $this->url('city') ?>" class="round button dark ic-left-arrow image-left"><?php echo $this->translate('Powrót na Rabatem') ?></a></li>
+				<li class="v-sep"><a href="<?php echo $this->url('dashboard') ?>" class="round button dark ic-left-arrow image-left"><?php echo $this->translate('Powrót na stronę główną') ?></a></li>
+				<li class="v-sep"><a href="#" class="round button dark menu-user image-left"><?php echo $this->translate('Zalogowany jako') ?> <strong><?php echo $this->zfcUserDisplayName() ?></strong></a>
+					<ul>
+						<li><a href="#"><?php echo $this->translate('Mój profil') ?></a></li>
+						<li><a href="#"><?php echo $this->translate('Ustawienia użytkownika') ?></a></li>
+						<li><a href="#"><?php echo $this->translate('Zmień hasło') ?></a></li>
+						<li><a href="<?php echo $this->url('zfcuser/logout') ?>"><?php echo $this->translate('Wyloguj się') ?></a></li>
+					</ul> 
+				</li>
+			
+				<li><a href="<?php echo $this->url('messages') ?>" class="round button dark menu-email-special image-left"><?php echo $this->translate('Wiadomości') ?></a></li>				
+				<li><a href="<?php echo $this->url('logs') ?>" class="round button dark menu-log-special image-left"><?php echo $this->translate('Logi') ?></a></li>			                             
+                                <li><a href="<?php echo $this->url('zfcuser/logout') ?>" class="round button dark menu-logoff image-left"><?php echo $this->translate('Wyloguj się') ?></a></li>
+                            <?php } else { ?>
+                                <li class="v-sep"><a href="http://www.rabatem.pl" class="round button dark ic-left-arrow image-left"><?php echo $this->translate('Powrót na stronę główną') ?></a></li>                                ;
+                            <?php } ?>   
+			</ul> <!-- end nav -->
+
+		</div> <!-- end full-width -->	
+	
+	</div> <!-- end top-bar -->
+	
+	
+	
+	<!-- HEADER -->
+	<div id="header-with-tabs">
+		
+		<div class="page-full-width cf">
+                    <?php if(!$this->zfcUserIdentity()) { ?>	
+                        <div id="login-intro" class="fl">
+			
+				<h1>LOGOWANIE</h1>
+				<h5>Wypełnij Formularz</h5>
+                                
+			</div> <!-- login-intro -->
+                    <?php } ?>    
+			<!-- Change this image to your own company's logo -->
+			<!-- The logo will automatically be resized to 30px height. -->
+			<a href="#" id="company-branding-small" class="fr"><img src="<?php echo $this->basePath('img/rabatem.jpg'); ?>" alt="Rabatem" /></a>
+			
+		</div> <!-- end full-width -->	
+
+	</div> <!-- end header -->
+	
+	
+<?php if($this->zfcUserIdentity()) { ?>	
+	<!-- MAIN CONTENT -->
+	<div id="content">
+		<div class="page-full-width cf">
+                    <div class="container fl">     
+			<div class="side-menu">
+				
+				<h3><?php echo $this->translate('Dodawanie') ?></h3>
+				<ul>
+					<li><a href="<?php echo $this->url('offer', array('action'=>'add')); ?>"><?php echo $this->translate('Oferta') ?></a></li>
+					<li><a href="<?php echo $this->url('offer', array('action'=>'companyadd')) ?>"><?php echo $this->translate('Firma') ?></a></li>
+				</ul>
+				
+			</div> <!-- end side-menu -->
+                        
+                        <div class="side-menu">
+				
+				<h3><?php echo $this->translate('Inne') ?></h3>
+				<ul>
+					<li><a href="<?php echo $this->url('offer') ?>"><?php echo $this->translate('Lista ofert') ?></a></li>
+					<li><a href="<?php echo $this->url('offer', array('action'=>'category')) ?>"><?php echo $this->translate('Lista kategorii') ?></a></li>
+                                        <li><a href="#"><?php echo $this->translate('Statystyki') ?></a></li>
+                                        <li><a href="<?php echo $this->url('logs', array('action'=>'offerlogs')) ?>"><?php echo $this->translate('Logi kodów') ?></a></li>
+                                        <li><a href="#"><?php echo $this->translate('Ustawienia serwisu') ?></a></li>
+                                        
+				</ul>
+				
+			</div> <!-- end side-menu -->
+                    </div>    
+			<div class="side-content fr">    
+<?php 
+}
+echo $this->content; ?>
+          <!-- /container -->
+        <?php echo $this->inlineScript() ?>
+          
+          
+          </div>
+		
+			</div> <!-- end side-content -->
+		
+		</div> <!-- end full-width -->
+			
+	</div> <!-- end content -->
+	
+	
+

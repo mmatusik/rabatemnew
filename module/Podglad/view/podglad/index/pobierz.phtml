@@ -1,0 +1,19 @@
+<div id="recommended">
+    <div class="pages p-download">
+        <div class="down-form">
+            <h2>Pobierz kod do oferty!</h2>
+            <p>Wystarczy, że wpiszesz poniżej swój adres email.</p>
+            <?php
+                $form = $this->form;
+                $form->prepare();
+                echo $this->form()->openTag($form);
+                echo $this->formRow($form->get('email'));
+                echo $this->formSubmit($form->get('submit'));      
+                echo $this->form()->closeTag();
+            ?>
+        </div>    
+    </div>    
+</div>
+
+
+

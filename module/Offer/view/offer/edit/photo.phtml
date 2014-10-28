@@ -1,0 +1,58 @@
+
+				<div class="content-module">
+				
+					<div class="content-module-heading cf">
+					
+						<h3 class="fl"><?php echo $this->translate('Dodaj ofertę') ?></h3>
+						<span class="fr expand-collapse-text"><?php echo $this->translate('Schowaj') ?></span>
+						<span class="fr expand-collapse-text initial-expand"><?php echo $this->translate('Wysuń') ?></span>
+					
+					</div> <!-- end content-module-heading -->
+					
+					
+					<div class="content-module-main">
+                                            <div class="steps">
+                                                <ul>
+                                                  <li class="step step-1">
+                                                    <a class="comp" href="#"><strong>Krok 1</strong><br />podaj podstawowe dane</a>
+                                                  </li>
+                                                  <li class="step step-2">
+                                                    <a class="comp" href="#"><strong>Krok 2</strong><br />wybierz dane firmy</a>
+                                                  </li>
+                                                  <li class="step step-3">
+                                                    <a class="current" href="#"><strong>Krok 3</strong><br />dodaj zdjęcia</a>
+                                                  </li>
+                                                  <li class="step step-4">
+                                                    <a href="#"><strong>Krok 4</strong><br />wybierz miasta</a>
+                                                  </li>
+                                                </ul>
+                                            </div> 
+                                            <?php if($add_photos) {
+                                                echo '<h1>Wybierz zdjęcie główne</h1>';
+                                                foreach($this->add_photos as $photo) { ?>
+                                            <a href='<?php echo $this->url('offer', array('action' => 'setmain', 'link'=>$this->link, 'id' => $photo->id)); ?>'><img class='add-photos' src='<?php echo $this->basePath() . '/../data/upload/'.$photo->src; ?>' /></a>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
+                                            <?php $form->prepare(); // The correct enctype is set here ?>
+                                            <?php echo $this->form()->openTag($form); ?>
+
+                                                <div class="form-element pd-top-20">
+                                                    <?php $fileElement = $form->get('image'); ?>
+                                                    <?php echo $this->formLabel($fileElement); ?>
+                                                    <?php echo $this->formFile($fileElement); ?>
+                                                    <?php echo $this->formElementErrors($fileElement); ?>
+                                                </div>
+
+                                                <input type="submit" value="Dodaj" class="button round blue image-right ic-right-arrow">
+
+                                            <?php echo $this->form()->closeTag(); ?>
+					
+					</div> <!-- end content-module-main -->
+				
+				</div> <!-- end content-module -->
+				
+			
+
+			

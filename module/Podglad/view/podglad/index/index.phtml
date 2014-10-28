@@ -1,0 +1,98 @@
+
+<?php 
+
+    if($this->offer_zero == TRUE) {
+        echo '<div class="offer-zero pages p-offer-zero-reco white"><h2>Błąd #0001</br>Nie znaleziono podanej oferty</h2></div>';
+    } else {      
+?>
+<div class="width">
+<div class="offer-podglad">
+        <h2><?php echo $this->name ;?></h2>
+        <div class="offer-slider">
+            <div class="flexslider">
+                <ul class="slides">
+                    <?php foreach ($photos as $img) : ?>  
+                        <li class='brz' data-thumb="<?php echo $this->basePath() . '/../data/upload/'.$img->src.'' ?>">
+                            <div class="image"><img src="<?php echo $this->basePath() . '/../data/upload/'.$img->src.'' ?>" /></div>
+                                                    
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        </div>
+        
+        
+        
+        
+        <div class="offer-details">
+            <div class="offer-details-box"><h2 class="offer-details-price orange"><?php echo $this->new_price ;?>zł</h2></div>
+            <div class="offer-details-box">
+                <table class="offer-details-table">
+                    <tr><td class="aleft">Stara cena:</td><td class="aright w400"><?php echo $this->old_price ;?>zł</td></tr>
+                    <tr><td class="aleft border-none">Oszczędzasz:</td><td class="aright w400 border-none"><?php echo $this->percent ;?>%</td></tr>                   
+                </table>    
+            </div>
+            <div class="offer-details-box">
+                <table class="offer-details-table">
+                    <tr><td class="aleft">Firma:</td><td class="aright w400"><?php echo $this->company ;?></td></tr>
+                    <tr><td class="aleft">Miasto:</td><td class="aright w400"><?php echo $this->city ;?></td></tr>
+                    <tr><td class="aleft">Adres:</td><td class="aright w400"><?php echo $this->addres ;?></td></tr>
+                    <tr><td class="aleft">Telefon:</td><td class="aright w400"><?php echo $this->phone ;?></td></tr>
+                    <tr><td class="aleft">WWW:</td><td class="aright w400"><?php echo $this->website ;?></td></tr>
+                    <tr><td class="aleft border-none">E-mail:</td><td class="aright w400 border-none"><?php echo $this->email ;?></td></tr>                   
+                </table>    
+            </div>
+            
+            <div class="offer-download">
+                <a href="<?php echo $this->url('pobierz', array('link'=> $this->link)) ?>">Pobierz kod</a>
+            </div>
+        </div>
+        
+        
+        <div id="offer-information">
+            <div class="offer-disc-info offer-disc-bg1">
+                <p>
+                Oszczędzasz<h2 class="offer-disc-h2 w400">
+                    -<?php echo $this->percent ;?>%
+                </h2>
+                </p>
+            </div>
+            <div class="offer-disc-info offer-disc-bg2">
+                <p>
+                Do końca<h2 class="offer-disc-h2 w400">
+                    23dni 5godz. 34min.
+                </h2>
+                </p>
+            </div>
+            <div class="offer-disc-info offer-disc-bg3">
+                <p class="offer-disc-p">Informacje częściowy opis
+                <a href="#">Więcej...</a>
+                </p>
+            </div>
+        </div>
+    </div>    
+</div>
+
+
+<div class="width">
+    <div class="offer-disc">
+        
+        
+        <div class="offer-disc-worth">
+            <h1 class='orange w300'>Dlaczego Warto</h1>
+            <p><?php echo $this->worth ;?></p>
+        </div>           
+        <div class="offer-disc-how">
+            <h1 class='orange w300'>Jak Skorzystać</h1>
+            <p><?php echo $this->how ;?></p>
+        </div>  
+        <div class="offer-disc-disc">
+            <h1 class='orange w300'>Opis</h1>
+            <p><?php echo $this->disc ;?></p>
+        </div>  
+
+        </div>
+    </div>
+<?php
+    }
+?>

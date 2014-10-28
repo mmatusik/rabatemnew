@@ -1,0 +1,125 @@
+<script>
+    
+    $(function() {
+        $.datepicker.regional['pl'] = {
+        closeText: 'Zamknij',
+        prevText: '&#x3C;Poprzedni',
+        nextText: 'Następny&#x3E;',
+        currentText: 'Dziś',
+        monthNames: ['Styczeń','Luty','Marzec','Kwiecień','Maj','Czerwiec',
+        'Lipiec','Sierpień','Wrzesień','Październik','Listopad','Grudzień'],
+        monthNamesShort: ['Sty','Lu','Mar','Kw','Maj','Cze',
+        'Lip','Sie','Wrz','Pa','Lis','Gru'],
+        dayNames: ['Niedziela','Poniedziałek','Wtorek','Środa','Czwartek','Piątek','Sobota'],
+        dayNamesShort: ['Nie','Pn','Wt','Śr','Czw','Pt','So'],
+        dayNamesMin: ['N','Pn','Wt','Śr','Cz','Pt','So'],
+        weekHeader: 'Tydz',
+        dateFormat: 'dd.mm.yy',
+        firstDay: 1,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: ''};
+        $.datepicker.setDefaults($.datepicker.regional['pl']);
+        $("#picker").datepicker();
+        $('#picker').datepicker('option', 'dateFormat', 'yy-mm-dd');
+    });
+</script>                              			
+				<div class="content-module">
+				
+					<div class="content-module-heading cf">
+					
+						<h3 class="fl"><?php echo $this->translate('Dodaj ofertę') ?></h3>
+						<span class="fr expand-collapse-text"><?php echo $this->translate('Schowaj') ?></span>
+						<span class="fr expand-collapse-text initial-expand"><?php echo $this->translate('Wysuń') ?></span>
+					
+					</div> <!-- end content-module-heading -->
+					
+					
+					<div class="content-module-main">
+                                            <div class="steps">
+                                                <ul>
+                                                  <li class="step step-1">
+                                                    <a class="current" href="#"><strong>Krok 1</strong><br />podaj podstawowe dane</a>
+                                                  </li>
+                                                  <li class="step step-2">
+                                                    <a href="#"><strong>Krok 2</strong><br />wybierz dane firmy</a>
+                                                  </li>
+                                                  <li class="step step-3">
+                                                    <a href="#"><strong>Krok 3</strong><br />dodaj zdjęcia</a>
+                                                  </li>
+                                                  <li class="step step-4">
+                                                    <a href="#"><strong>Krok 4</strong><br />wybierz miasta</a>
+                                                  </li>
+                                                </ul>
+                                            </div> 
+                                            
+                                            <?php
+                                                $form = $this->form;
+                                                $form->prepare();
+                                                echo $this->form()->openTag($form);
+                                            ?>
+                                            <div class="float-left-50">
+                                            <?php                                          
+                                                echo $this->formLabel($form->get('name'));
+                                                echo $this->formInput($form->get('name'));
+                                                echo $this->formElementErrors($form->get("name"), array('class' => "error", 'message' => "errormessage"));
+                                                
+                                                echo $this->formLabel($form->get('oldprice'));
+                                                echo $this->formInput($form->get('oldprice'));
+                                                echo $this->formElementErrors($form->get("oldprice"), array('class' => "error", 'message' => "errormessage"));
+                                                
+                                                echo $this->formRow($form->get('recommended'));
+
+                                                echo $this->formRow($form->get('colorCheckbox'));
+                                                
+                                            ?>
+                                            <div class="code box-hidden">
+                                            <?php
+                                                echo $this->formRow($form->get('code_count'));
+                                                echo $this->formRow($form->get('code_per_person'));
+                                            ?>
+                                            </div>
+                                            
+                                            <div class="pass box-hidden">
+                                            <?php
+                                                echo $this->formRow($form->get('pass'));
+                                            ?>    
+                                            </div>
+                                            
+                                            </div>
+                                            <div class="float-right-50">
+                                            <?php
+                                                echo $this->formLabel($form->get('end_time'));
+                                                echo $this->formInput($form->get('end_time'));
+                                                echo $this->formElementErrors($form->get("end_time"), array('class' => "error", 'message' => "errormessage"));
+                                                
+                                                echo $this->formLabel($form->get('newprice'));
+                                                echo $this->formInput($form->get('newprice'));
+                                                echo $this->formElementErrors($form->get("newprice"), array('class' => "error", 'message' => "errormessage"));
+                                                
+                                                echo $this->formRow($form->get('category'));
+                                                
+                                                echo $this->formLabel($form->get('keyworlds'));
+                                                echo $this->formInput($form->get('keyworlds'));
+                                                echo $this->formElementErrors($form->get("keyworlds"), array('class' => "error", 'message' => "errormessage"));
+                                                
+                                            ?>
+                                            </div>
+                                            <div class="space"></div>
+                                            <div class="mr-button">
+                                            <?php
+                                                echo $this->formRow($form->get('disc'));
+                                                echo $this->formRow($form->get('how'));
+                                                echo $this->formRow($form->get('worth'));
+                                                echo $this->formSubmit($form->get('submit'));      
+                                                echo $this->form()->closeTag();
+                                                
+                                            ?>
+					
+					</div> <!-- end content-module-main -->
+				
+				</div> <!-- end content-module -->
+				
+			
+
+			
